@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { useLang } from "@/lib/LanguageContext";
 
@@ -41,31 +40,22 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto flex flex-col pt-10">
           
-          <motion.h1 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter text-white mb-8"
+          <h1 
+            className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter text-white mb-8 animate-fade-up delay-300"
           >
             <span className="block transform -skew-x-6 hover:skew-x-0 transition-transform duration-300">Awaken</span>
             <span className="block transform -skew-x-6 text-primary hover:skew-x-0 transition-transform duration-300 ml-8 md:ml-16">Your</span>
             <span className="block transform -skew-x-6 hover:skew-x-0 transition-transform duration-300">Hobby.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-400 font-medium max-w-xl border-l-4 border-primary pl-4 md:pl-6 mb-12 uppercase tracking-wide whitespace-pre-line"
+          <p 
+            className="text-lg md:text-xl text-gray-400 font-medium max-w-xl border-l-4 border-primary pl-4 md:pl-6 mb-12 uppercase tracking-wide whitespace-pre-line animate-fade-up delay-600"
           >
             {t.desc}
-          </motion.p>
+          </p>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-6"
+          <div 
+            className="flex flex-col sm:flex-row gap-6 animate-fade-up delay-800"
           >
             <Link href="#inventory" className="inline-block group relative bg-primary text-black font-black uppercase tracking-widest px-8 md:px-10 py-4 md:py-5 text-base md:text-lg transform -skew-x-12 border-b-8 border-r-8 border-white/20 hover:translate-y-1 hover:border-b-4 hover:border-r-4 transition-all w-full sm:w-auto text-center">
               <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200"></span>
@@ -74,7 +64,7 @@ export function Hero() {
             <Link href="#manual" className="inline-block group bg-transparent text-white border-4 border-white font-black uppercase tracking-widest px-8 md:px-10 py-4 md:py-5 text-base md:text-lg transform -skew-x-12 hover:bg-white hover:text-black transition-colors w-full sm:w-auto text-center">
               <span className="inline-block transform skew-x-12">{t.btn2}</span>
             </Link>
-          </motion.div>
+          </div>
 
         </div>
       </div>

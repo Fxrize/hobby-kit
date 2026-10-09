@@ -38,6 +38,11 @@
   50% { transform: scale(1.1) translate(-30px, -50px); }
 }
 
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 .animate-float1 {
   animation: float1 10s ease-in-out infinite;
   will-change: transform;
@@ -47,6 +52,15 @@
   animation: float2 12s ease-in-out infinite 1s;
   will-change: transform;
 }
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.delay-300 { animation-delay: 300ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-800 { animation-delay: 800ms; }
 
 body {
   background: var(--background);
