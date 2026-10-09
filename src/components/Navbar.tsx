@@ -101,22 +101,23 @@ export function Navbar() {
           <button 
             onClick={() => setLang(lang === "ID" ? "EN" : "ID")}
             className="flex items-center gap-2 border-2 border-white/20 px-3 py-1 hover:border-primary hover:text-primary transition-colors transform -skew-x-12 mr-2"
+            aria-label="Ubah Bahasa"
           >
-            <Globe className="w-4 h-4 transform skew-x-12" />
+            <Globe className="w-4 h-4 transform skew-x-12" aria-hidden="true" />
             <span className="font-black text-xs uppercase transform skew-x-12">{lang}</span>
           </button>
           
-          <Link href="/cart" className="relative p-2 border-2 border-transparent hover:border-primary transition-colors flex items-center justify-center transform hover:-skew-x-12">
-            <ShoppingCart className="w-6 h-6 text-white" />
+          <Link href="/cart" className="relative p-2 border-2 border-transparent hover:border-primary transition-colors flex items-center justify-center transform hover:-skew-x-12" aria-label="Keranjang Belanja">
+            <ShoppingCart className="w-6 h-6 text-white" aria-hidden="true" />
             <span className="absolute -top-2 -right-2 w-5 h-5 bg-primary text-black text-xs font-bold flex items-center justify-center rounded-sm">
               {cartCount}
             </span>
           </Link>
-          <Link href={user ? "/profile" : "/login"} className="p-2 border-2 border-transparent hover:border-primary transition-colors transform hover:-skew-x-12">
-            <UserIcon className="w-6 h-6 text-white" />
+          <Link href={user ? "/profile" : "/login"} className="p-2 border-2 border-transparent hover:border-primary transition-colors transform hover:-skew-x-12" aria-label="Profil Pengguna">
+            <UserIcon className="w-6 h-6 text-white" aria-hidden="true" />
           </Link>
-          <button className="md:hidden p-2 text-primary">
-            <Menu className="w-6 h-6" />
+          <button className="md:hidden p-2 text-primary" aria-label="Buka Menu">
+            <Menu className="w-6 h-6" aria-hidden="true" />
           </button>
         </div>
       </div>

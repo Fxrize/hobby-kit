@@ -28,28 +28,12 @@ export function Hero() {
 
   return (
     <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-black pt-20">
-      {/* Mesh Gradient Background */}
-      <div className="absolute inset-0 z-0">
+      {/* Mesh Gradient Background (Optimized CSS Animations) */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Soft Yellow Glow */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-primary/20 rounded-full blur-[120px]"
-        />
+        <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-primary/20 rounded-full blur-[100px] animate-float1" />
         {/* Soft White/Gray Glow */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            x: [0, -30, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-[30%] -right-[10%] w-[60%] h-[60%] bg-white/10 rounded-full blur-[100px]"
-        />
+        <div className="absolute top-[30%] -right-[10%] w-[60%] h-[60%] bg-white/10 rounded-full blur-[100px] animate-float2" />
         {/* Dot Pattern Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
       </div>
