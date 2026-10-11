@@ -81,15 +81,15 @@ export function Navbar() {
           : "bg-black/90 py-6"
       }`}
     >
-      <div className="w-full px-6 md:px-12 flex items-center">
-        <Link href="/" className="group relative mr-auto">
+      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+        <Link href="/" className="group relative">
           <span className="absolute -inset-1 bg-primary transform -skew-x-12 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
           <h1 className="relative text-3xl font-black uppercase tracking-tighter text-white group-hover:text-black transition-colors">
             Hobby<span className="text-primary group-hover:text-black">Kit</span>
           </h1>
         </Link>
 
-        <nav className="hidden md:flex gap-6 lg:gap-10 mr-8">
+        <nav className="hidden md:flex gap-6 lg:gap-10 mx-auto">
           {currentNav.map((item) => (
             <Link key={item.label} href={item.href} className="relative text-sm font-bold uppercase tracking-widest overflow-hidden group">
               <span className="inline-block transition-transform duration-200 group-hover:-translate-y-full">{item.label}</span>
@@ -98,10 +98,10 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <button 
             onClick={() => setLang(lang === "ID" ? "EN" : "ID")}
-            className="flex items-center gap-2 border-2 border-white/20 px-3 py-1 hover:border-primary hover:text-primary transition-colors transform -skew-x-12 mr-2"
+            className="flex items-center gap-2 border-2 border-white/20 px-3 py-1 hover:border-primary hover:text-primary transition-colors transform -skew-x-12"
             aria-label="Ubah Bahasa"
           >
             <Globe className="w-4 h-4 transform skew-x-12" aria-hidden="true" />
@@ -119,13 +119,13 @@ export function Navbar() {
           </Link>
           <button 
             onClick={() => setIsMobileOpen(!isMobileOpen)} 
-            className="md:hidden p-2 text-primary" 
+            className="md:hidden p-2 text-primary border-2 border-white/20 hover:border-primary transition-colors transform -skew-x-12 ml-1" 
             aria-label={isMobileOpen ? "Tutup Menu" : "Buka Menu"}
           >
             {isMobileOpen ? (
-              <X className="w-6 h-6" aria-hidden="true" />
+              <X className="w-6 h-6 transform skew-x-12" aria-hidden="true" />
             ) : (
-              <Menu className="w-6 h-6" aria-hidden="true" />
+              <Menu className="w-6 h-6 transform skew-x-12" aria-hidden="true" />
             )}
           </button>
         </div>
