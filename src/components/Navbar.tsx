@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingCart, User as UserIcon, Menu, Globe } from "lucide-react";
+import { ShoppingCart, User as UserIcon, Menu, X, Globe } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/LanguageContext";
 import { supabase } from "@/lib/supabase";
@@ -10,6 +10,7 @@ import type { User } from "@supabase/supabase-js";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { lang, setLang } = useLang();
   const [user, setUser] = useState<User | null>(null);
   const [cartCount, setCartCount] = useState(0);
@@ -17,15 +18,15 @@ export function Navbar() {
   const navItems = {
     ID: [
       { label: "Katalog", href: "/#inventory" },
-      { label: "Manual", href: "/#manual" },
+      { label: "Cara Kerja", href: "/#manual" },
       { label: "Tentang", href: "/#objective" },
       { label: "FAQ", href: "/#faq" },
       { label: "Kontak", href: "/#contact" }
     ],
     EN: [
-      { label: "Inventory", href: "/#inventory" },
-      { label: "Manual", href: "/#manual" },
-      { label: "Objective", href: "/#objective" },
+      { label: "Catalog", href: "/#inventory" },
+      { label: "How It Works", href: "/#manual" },
+      { label: "About", href: "/#objective" },
       { label: "FAQ", href: "/#faq" },
       { label: "Contact", href: "/#contact" }
     ]
@@ -116,11 +117,35 @@ export function Navbar() {
           <Link href={user ? "/profile" : "/login"} className="p-2 border-2 border-transparent hover:border-primary transition-colors transform hover:-skew-x-12" aria-label="Profil Pengguna">
             <UserIcon className="w-6 h-6 text-white" aria-hidden="true" />
           </Link>
-          <button className="md:hidden p-2 text-primary" aria-label="Buka Menu">
-            <Menu className="w-6 h-6" aria-hidden="true" />
+          <button 
+            onClick={() => setIsMobileOpen(!isMobileOpen)} 
+            className="md:hidden p-2 text-primary" 
+            aria-label={isMobileOpen ? "Tutup Menu" : "Buka Menu"}
+          >
+            {isMobileOpen ? (
+              <X className="w-6 h-6" aria-hidden="true" />
+            ) : (
+              <Menu className="w-6 h-6" aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
+
+      {/* Mobile Drawer */}
+      {isMobileOpen && (
+        <div className="md:hidden bg-black border-t-2 border-primary px-6 py-6 flex flex-col gap-4">
+          {currentNav.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setIsMobileOpen(false)}
+              className="text-base font-bold uppercase tracking-widest text-white hover:text-primary transition-colors py-2 border-b border-white/10"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
