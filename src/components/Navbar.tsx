@@ -81,10 +81,10 @@ export function Navbar() {
           : "bg-black/90 py-6"
       }`}
     >
-      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="group relative">
           <span className="absolute -inset-1 bg-primary transform -skew-x-12 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200"></span>
-          <h1 className="relative text-3xl font-black uppercase tracking-tighter text-white group-hover:text-black transition-colors">
+          <h1 className="relative text-2xl sm:text-3xl font-black uppercase tracking-tighter text-white group-hover:text-black transition-colors">
             Hobby<span className="text-primary group-hover:text-black">Kit</span>
           </h1>
         </Link>
@@ -98,34 +98,34 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 pr-1 sm:pr-0">
           <button 
             onClick={() => setLang(lang === "ID" ? "EN" : "ID")}
-            className="flex items-center gap-2 border-2 border-white/20 px-3 py-1 hover:border-primary hover:text-primary transition-colors transform -skew-x-12"
+            className="flex items-center gap-1.5 sm:gap-2 border-2 border-white/20 px-2 sm:px-3 py-1 hover:border-primary hover:text-primary transition-colors transform -skew-x-12"
             aria-label="Ubah Bahasa"
           >
-            <Globe className="w-4 h-4 transform skew-x-12" aria-hidden="true" />
+            <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 transform skew-x-12" aria-hidden="true" />
             <span className="font-black text-xs uppercase transform skew-x-12">{lang}</span>
           </button>
           
-          <Link href="/cart" className="relative p-2 border-2 border-transparent hover:border-primary transition-colors flex items-center justify-center transform hover:-skew-x-12" aria-label="Keranjang Belanja">
-            <ShoppingCart className="w-6 h-6 text-white" aria-hidden="true" />
+          <Link href="/cart" className="relative p-1.5 sm:p-2 border-2 border-transparent hover:border-primary transition-colors flex items-center justify-center transform hover:-skew-x-12" aria-label="Keranjang Belanja">
+            <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
             <span className="absolute -top-2 -right-2 w-5 h-5 bg-primary text-black text-xs font-bold flex items-center justify-center rounded-sm">
               {cartCount}
             </span>
           </Link>
-          <Link href={user ? "/profile" : "/login"} className="p-2 border-2 border-transparent hover:border-primary transition-colors transform hover:-skew-x-12" aria-label="Profil Pengguna">
-            <UserIcon className="w-6 h-6 text-white" aria-hidden="true" />
+          <Link href={user ? "/profile" : "/login"} className="p-1.5 sm:p-2 border-2 border-transparent hover:border-primary transition-colors transform hover:-skew-x-12" aria-label="Profil Pengguna">
+            <UserIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
           </Link>
           <button 
             onClick={() => setIsMobileOpen(!isMobileOpen)} 
-            className="md:hidden p-2 text-primary border-2 border-white/20 hover:border-primary transition-colors transform -skew-x-12 ml-1" 
+            className="md:hidden p-1.5 sm:p-2 text-primary border-2 border-white/20 hover:border-primary transition-colors transform -skew-x-12 mr-1 sm:mr-0" 
             aria-label={isMobileOpen ? "Tutup Menu" : "Buka Menu"}
           >
             {isMobileOpen ? (
-              <X className="w-6 h-6 transform skew-x-12" aria-hidden="true" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 transform skew-x-12" aria-hidden="true" />
             ) : (
-              <Menu className="w-6 h-6 transform skew-x-12" aria-hidden="true" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 transform skew-x-12" aria-hidden="true" />
             )}
           </button>
         </div>
