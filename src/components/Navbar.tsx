@@ -89,8 +89,8 @@ export function Navbar() {
           </h1>
         </Link>
 
-        <div className="flex items-center gap-6 lg:gap-10">
-          <nav className="hidden md:flex gap-6 lg:gap-10">
+        <div className="flex items-center gap-4 lg:gap-6">
+          <nav className="hidden md:flex gap-4 lg:gap-6">
             {currentNav.map((item) => (
               <Link key={item.label} href={item.href} className="relative text-sm font-bold uppercase tracking-widest overflow-hidden group">
                 <span className="inline-block transition-transform duration-200 group-hover:-translate-y-full">{item.label}</span>
