@@ -3,6 +3,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Chatbot } from "@/components/Chatbot";
 import { LanguageProvider } from "@/lib/LanguageContext";
 
 const inter = Inter({
@@ -36,6 +37,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Chatbot />
         </LanguageProvider>
       </body>
     </html>
